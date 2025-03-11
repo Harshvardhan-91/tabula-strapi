@@ -1,0 +1,38 @@
+{
+    "kind": "collectionType",
+    "collectionName": "tabula_rasas",
+    "info": {
+        "singularName": "tabula-rasa",
+        "pluralName": "tabula-rasas",
+        "displayName": "System",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "attributes": {
+        "percentage": {
+            "type": "integer"
+        },
+        "name": {
+            "type": "string"
+        },
+        "system": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::tabula-rasa.tabula-rasa"
+        },
+        "topic": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::tabula-rasa.tabula-rasa",
+            "inversedBy": "systems"
+        },
+        "systems": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::tabula-rasa.tabula-rasa",
+            "mappedBy": "topic"
+        }
+    }
+}
